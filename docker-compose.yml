@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  front:
+    container_name: next-ts-container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - './front-next/:/usr/src/front-next'
+      - './front-next/node_modules/:/usr/src/front-next/node_modules'
+    ports:
+      - '3007:3000'
