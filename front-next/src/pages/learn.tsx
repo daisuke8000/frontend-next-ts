@@ -4,8 +4,6 @@ import {
     Heading,
     Stack,
     Text,
-    Button,
-    Icon,
     IconProps,
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
@@ -26,33 +24,12 @@ export default function Index() {
                         fontWeight={600}
                         fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
                         lineHeight={'110%'}>
-                        Managements{' '}
-                        <Text as={'span'} color={'purple.400'}>
-                            made easy
-                        </Text>
+                        Description
                     </Heading>
                     <Text color={'gray.500'} maxW={'3xl'}>
                             All calculation management should be done in an application.
                             It is the easiest and quickest way to solve your work issues.
                     </Text>
-                    <Stack spacing={6} direction={'row'}>
-                        <Button
-                            rounded={'full'}
-                            px={6}
-                            colorScheme={'purple'}
-                            bg={'purple.400'}
-                            _hover={{ bg: 'purple.500' }}
-                            onClick={() => router.push("/auth")}
-                        >
-                            Get started
-                        </Button>
-                        <Button
-                            rounded={'full'}
-                            px={6}
-                            onClick={() => router.push("/learn")}>
-                            Learn more
-                        </Button>
-                    </Stack>
                     <Flex w={'full'}>
                         <Illustration
                             height={{ sm: '24rem', lg: '28rem' }}

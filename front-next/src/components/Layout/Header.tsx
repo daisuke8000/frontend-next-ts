@@ -1,6 +1,5 @@
-import { useRouter } from 'next/router';
-import {ReactNode, VFC} from 'react';
-import {Box, Flex, Link, Stack, useColorModeValue} from '@chakra-ui/react';
+import { VFC } from 'react';
+import {Box, Flex, Link} from '@chakra-ui/react';
 import { Navbar } from "../NavLayout/Navbar";
 
 export const Header: VFC = () => {
