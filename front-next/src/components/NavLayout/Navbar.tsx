@@ -6,7 +6,12 @@ export const Navbar = [
     },
     {
         id: "2",
+        name: "Learn",
+        path: "/learn",
+    },
+    {
+        id: "3",
         name: "Signin",
-        path: "/auth/auth",
+        path: "/auth",
     },
 ];
