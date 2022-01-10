@@ -35,8 +35,26 @@ export const SigninForm: VFC = () => {
         setPasswordConfirm(e.target.value)
     }
 
+    const onClickSiginin = () => {
+        const setUser = {
+            "email": email,
+            'password': password,
+        }
+        fetch("http://localhost:8080/api/admin/signin", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(setUser),
+            credentials: 'include',
+        }).then((r) => {
+            console.log(r)
+            router.push("/");
+        }).catch(() => {
+            alert("unknown error")
+        });
+    }
+
+
     const onClickSiginup = () => {
-        // console.log(password_confirm)
         if (password != password_confirm) return;
         const newUser = {
             "name": name,
@@ -151,27 +169,44 @@ export const SigninForm: VFC = () => {
                                 <Checkbox>Remember me</Checkbox>
                                 <Link color={'blue.400'}>Forgot password?</Link>
                             </Stack>
+                            <Stack spacing={6} direction={'row'}>
+                                <Button
+                                    rounded={'full'}
+                                    px={6}
+                                    colorScheme={'purple'}
+                                    bg={'purple.400'}
+                                    _hover={{ bg: 'purple.500' }}
+                                    onClick={onClickSiginin}>
+                                    Submit
+                                </Button>
+                                <Button rounded={'full'}
+                                        px={6}
+                                        onClick={() => router.push('/')}>
+                                    Back
+                                </Button>
+                            </Stack>
                             </>
                             :
-                            <Box>
-                            </Box>
-                        }
-                        <Stack spacing={6} direction={'row'}>
-                            <Button
-                                rounded={'full'}
-                                px={6}
-                                colorScheme={'purple'}
-                                bg={'purple.400'}
-                                _hover={{ bg: 'purple.500' }}
-                                onClick={onClickSiginup}>
-                                Submit
-                            </Button>
-                            <Button rounded={'full'}
+                            <>
+                            <Box/>
+                                <Stack spacing={6} direction={'row'}>
+                                <Button
+                                    rounded={'full'}
                                     px={6}
-                                    onClick={() => router.push('/')}>
+                                    colorScheme={'purple'}
+                                    bg={'purple.400'}
+                                    _hover={{ bg: 'purple.500' }}
+                                    onClick={onClickSiginup}>
+                                Submit
+                                </Button>
+                                <Button rounded={'full'}
+                                px={6}
+                                onClick={() => router.push('/')}>
                                 Back
-                            </Button>
-                        </Stack>
+                                </Button>
+                                </Stack>
+                            </>
+                        }
                     </Stack>
                 </Box>
             </Stack>
