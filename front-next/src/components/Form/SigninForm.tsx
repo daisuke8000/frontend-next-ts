@@ -45,14 +45,12 @@ export const SigninForm: VFC = () => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(setUser),
             credentials: 'include',
-        }).then((r) => {
-            console.log(r)
+        }).then(() => {
             router.push("/");
         }).catch(() => {
             alert("unknown error")
         });
     }
-
 
     const onClickSiginup = () => {
         if (password != password_confirm) return;
@@ -72,8 +70,6 @@ export const SigninForm: VFC = () => {
             alert("unknown posted error")
         });
     }
-
-
 
     return (
         <Flex
