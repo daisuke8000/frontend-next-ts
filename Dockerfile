@@ -1,5 +1,7 @@
 # pull official base image
-FROM node:16-alpine
+FROM alpine
+
+RUN apk add --update nodejs npm
 
 # set working directory
 WORKDIR /usr/src/front-next
